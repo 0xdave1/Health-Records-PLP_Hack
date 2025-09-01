@@ -1,23 +1,27 @@
 from flask import Flask, request, jsonify, render_template
-import mysql.connector
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash
+import os
+from dotenv import load_dotenv
+import mysql.connector
 import logging
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
+# Database configuration
+DB_CONFIG = {
+    "host": os.getenv('DB_HOST', 'localhost'),
+    "user": os.getenv('DB_USER', 'root'),
+    "password": os.getenv('DB_PASSWORD', 'Password123'),
+    "database": os.getenv('DB_NAME', 'school_health')
+}
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Database configuration
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "Password123",
-    "database": "school_health"
-}
 
 def get_db_connection():
     """Create and return a new database connection"""
@@ -118,4 +122,5 @@ def home():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
