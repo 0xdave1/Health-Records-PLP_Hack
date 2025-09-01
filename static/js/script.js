@@ -1,7 +1,7 @@
 document.getElementById('schoolForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
-        const response = await fetch('/register_school', {
+        const response = await fetch('http://127.0.0.1:5000/register_school', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ document.getElementById('schoolForm').addEventListener('submit', async (e) => {
 document.getElementById('studentForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
-        const response = await fetch('/add_student', {
+        const response = await fetch('http://127.0.0.1:5000/add_student', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ async function getRecords() {
         const recordsDiv = document.getElementById('records');
         recordsDiv.innerHTML = '<p>Loading records...</p>';
         
-        const response = await fetch('/get_records');
+        const response = await fetch('http://127.0.0.1:5000/get_records');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -86,7 +86,6 @@ async function getRecords() {
         
         recordsDiv.innerHTML = table;
     } catch (error) {
-        console.error('Error:', error);
         document.getElementById('records').innerHTML = 
             `<p class="error">Error loading records: ${error.message}</p>`;
     }

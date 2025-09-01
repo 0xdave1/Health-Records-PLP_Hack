@@ -7,32 +7,35 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    padding: 20px;
     background-color: #f4f4f4;
 }
 
 .container {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.form-section {
+    margin: 0 auto;
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.form-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
 h2 {
-    color: #444;
     margin-bottom: 20px;
+    color: #444;
 }
 
 form {
