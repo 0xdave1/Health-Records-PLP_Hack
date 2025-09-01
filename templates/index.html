@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Health System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>School Health System</h1>
+        
+        <section class="form-section">
+            <h2>Register School</h2>
+            <form id="schoolForm">
+                <input type="text" id="schoolName" placeholder="School Name" required>
+                <input type="email" id="schoolEmail" placeholder="Email" required>
+                <input type="password" id="schoolPassword" placeholder="Password" required>
+                <button type="submit">Register School</button>
+            </form>
+        </section>
+
+        <section class="form-section">
+            <h2>Add Student</h2>
+            <form id="studentForm">
+                <input type="text" id="studentName" placeholder="Student Name" required>
+                <input type="number" id="studentAge" placeholder="Age" required>
+                <input type="text" id="studentClass" placeholder="Class" required>
+                <button type="submit">Add Student</button>
+            </form>
+        </section>
+
+        <section class="form-section">
+            <h2>Health Records</h2>
+            <button onclick="getRecords()" class="view-btn">View Records</button>
+            <div id="records"></div>
+        </section>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
